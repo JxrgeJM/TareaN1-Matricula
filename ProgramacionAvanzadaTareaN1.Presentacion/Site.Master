@@ -5,16 +5,75 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <title>Tarea N1 - Matrícula Web</title>
+    <link href="~/Content/AlertifyJS/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/AlertifyJS/themes/default.min.css" rel="stylesheet" />
+    <link href="~/Content/Bootstrap_4.5.0/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Bootstrap_4.5.0/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/Content/Default/Site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server" autocomplete="off">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <asp:ScriptManager ID="ScriptManager" runat="server" EnableScriptGlobalization="True" ScriptMode="Release" AsyncPostBackTimeout="900">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/Jquery/jquery-3.5.1.min.js" />
+                <asp:ScriptReference Path="~/Scripts/Bootstrap_4.5.0/bootstrap.min.js" />
+                <asp:ScriptReference Path="~/Scripts/Bootstrap_4.5.0/bootstrap.bundle.min.js" />
+                <asp:ScriptReference Path="~/Scripts/AlertifyJS/alertify.min.js" />
+            </Scripts>
+        </asp:ScriptManager>
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col">
+                   <h1>Sistema de Matrícula Web</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <nav class='navbar navbar-expand-lg navbar-light rounded' style='background-color: #EFF3FB;'>
+                        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                            <ul class='navbar-nav mr-auto'>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Views/ViewEstudiantes.aspx">Estudiantes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Views/ViewCursos.aspx">Cursos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Views/ViewMatricula.aspx">Matrícular</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Views/ViewMatriculados.aspx">Matriculados</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid mt-2">
+            <asp:UpdatePanel ID="UpdatePanel" runat="server">
+                <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
+        <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel">
+            <ProgressTemplate>
+                <div class="updateBackground">
+                    <div class="spinner-border spinner-centered text-primary" role="status">
+                        <span class="sr-only">Cargando...</span>
+                    </div>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+
+        <footer class="fixed-bottom">
+            <div class="text-center">© Derechos reservados <%= DateTime.Now.Year %></div>
+        </footer>
     </form>
 </body>
 </html>
