@@ -8,6 +8,6 @@
         Curso: Programación Avanzada en Web<br />
         Profesor: Norberth Brunner Agüero<br />
         Estudiante: Jorge Jiménez Meléndez<br />
-        III Cuatrimestre 2022 Prueba</p>
+        III Cuatrimestre 2022</p>
 
 </asp:Content>
