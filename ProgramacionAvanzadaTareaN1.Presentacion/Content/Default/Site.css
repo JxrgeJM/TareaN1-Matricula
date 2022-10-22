@@ -73,6 +73,10 @@ h1, h2, h3, h4 {
     opacity: 0.5;
 }
 
+.alertLabel {
+    font-size: .70rem;
+    color: rgb(235, 28, 45);
+}
 
 /*----------------------AlertifyJS----------------------*/
 .alertify-notifier .ajs-message {

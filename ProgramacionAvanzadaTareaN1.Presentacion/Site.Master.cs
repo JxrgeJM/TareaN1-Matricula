@@ -13,5 +13,24 @@ namespace ProgramacionAvanzadaTareaN1.Presentacion
         {
 
         }
+
+        public void Alerta(String pMensaje, int pTipo)
+        {
+            string vScript = "";
+            switch (pTipo)
+            {
+                case 1:
+                    vScript = $"alertify.success('{pMensaje}', 5);";
+                    break;
+                case 2:
+                    vScript = $"alertify.warning('{pMensaje}', 5);";
+                    break;
+                case 3:
+                    vScript = $"alertify.error('{pMensaje}', 5);";
+                    break;
+            }
+            if (vScript != "")
+                ScriptManager.RegisterStartupScript(UpdatePanel, UpdatePanel.GetType(), "script", vScript, true);
+        }
     }
 }

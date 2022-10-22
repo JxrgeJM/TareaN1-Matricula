@@ -14,7 +14,7 @@
     <RootNamespace>ProgramacionAvanzadaTareaN1.Presentacion</RootNamespace>
     <AssemblyName>ProgramacionAvanzadaTareaN1.Presentacion</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -92,7 +92,6 @@
     <Content Include="Content\Bootstrap_4.5.0\bootstrap.min.css" />
     <Content Include="Content\Default\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Scripts\AlertifyJS\alertify.js" />
     <Content Include="Scripts\AlertifyJS\alertify.min.js" />
     <Content Include="Scripts\Bootstrap_4.5.0\bootstrap.bundle.min.js" />
@@ -197,7 +196,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58412</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61082/</IISUrl>
+          <IISUrl>http://localhost/ProgramacionAvanzadaTareaN1.Presentacion</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

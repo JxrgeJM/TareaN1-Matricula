@@ -36,16 +36,16 @@
                         <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                             <ul class='navbar-nav mr-auto'>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/Views/ViewEstudiantes.aspx">Estudiantes</a>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" NavigateUrl="~/Views/ViewEstudiantes.aspx">Estudiantes</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/Views/ViewCursos.aspx">Cursos</a>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="~/Views/ViewCursos.aspx">Cursos</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/Views/ViewMatricula.aspx">Matrícular</a>
+                                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Views/ViewMatricula.aspx">Matrícular</asp:HyperLink>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/Views/ViewMatriculados.aspx">Matriculados</a>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="nav-link" NavigateUrl="~/Views/ViewMatriculados.aspx">Matriculados</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>
