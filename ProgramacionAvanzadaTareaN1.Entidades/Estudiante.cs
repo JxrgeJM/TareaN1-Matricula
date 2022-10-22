@@ -24,5 +24,11 @@ namespace ProgramacionAvanzadaTareaN1.Entidades
         public string Apellido2 { get; set; }
         public DateTime FNacimiento { get; set; }
         public DateTime FIngreso { get; set; }
+
+        public string NombreCompleto
+        {
+            get { return $"{Nombre} {Apellido1} {Apellido2}"; }
+        }
+
     }
 }

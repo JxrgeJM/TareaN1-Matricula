@@ -10,6 +10,11 @@ namespace ProgramacionAvanzadaTareaN1.LogicaNegocio
 {
     public class AdministradorMatricula
     {
+        public static List<Matricula> Listar(int pCuatrimestre)
+        {
+            return MatriculaDAL.Listar(pCuatrimestre);
+        }
+
         public static void Agregar(Matricula pMatricula)
         {
             MatriculaDAL.Agregar(pMatricula);
