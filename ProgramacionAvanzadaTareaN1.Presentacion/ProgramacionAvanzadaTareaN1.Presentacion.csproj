@@ -91,6 +91,7 @@
     <Content Include="Content\Bootstrap_4.5.0\bootstrap.css" />
     <Content Include="Content\Bootstrap_4.5.0\bootstrap.min.css" />
     <Content Include="Content\Default\Site.css" />
+    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\AlertifyJS\alertify.js" />
     <Content Include="Scripts\AlertifyJS\alertify.min.js" />
@@ -101,13 +102,19 @@
     <Content Include="Views\Consultas\ViewEstadisticaCursosMatriculados.aspx" />
     <Content Include="Views\Consultas\ViewEstudiantesPorCurso.aspx" />
     <Content Include="Views\Consultas\ViewIngresosPorCuatrimestre.aspx" />
-    <Content Include="Views\Default.aspx" />
     <Content Include="Views\ViewCursos.aspx" />
     <Content Include="Views\ViewEstudiantes.aspx" />
     <Content Include="Views\ViewMatricula.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,13 +146,6 @@
     </Compile>
     <Compile Include="Views\Consultas\ViewIngresosPorCuatrimestre.aspx.designer.cs">
       <DependentUpon>ViewIngresosPorCuatrimestre.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewCursos.aspx.cs">
       <DependentUpon>ViewCursos.aspx</DependentUpon>

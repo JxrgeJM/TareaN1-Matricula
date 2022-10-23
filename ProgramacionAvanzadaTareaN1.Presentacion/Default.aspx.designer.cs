@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProgramacionAvanzadaTareaN1.Presentacion.Views
+namespace ProgramacionAvanzadaTareaN1.Presentacion
 {
 
 

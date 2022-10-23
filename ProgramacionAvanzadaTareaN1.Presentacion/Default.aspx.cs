@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ProgramacionAvanzadaTareaN1.Presentacion.Views
+namespace ProgramacionAvanzadaTareaN1.Presentacion
 {
     public partial class Default : System.Web.UI.Page
     {
