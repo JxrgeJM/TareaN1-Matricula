@@ -11,6 +11,39 @@ namespace ProgramacionAvanzadaTareaN1.Datos
 {
     public class MatriculaDAL
     {
+        public static List<Matricula> ListarPorEstudiante(int pCuatrimestre, string pIdEstudiante)
+        {
+            SqlCommand vCmd = new SqlCommand("SP_ListarMatriculaEstudiante", Conexion.getCnxMatricula());
+            vCmd.CommandType = CommandType.StoredProcedure;
+            vCmd.Parameters.Clear();
+            vCmd.Parameters.AddWithValue("@pCuatrimestre", pCuatrimestre);
+            vCmd.Parameters.AddWithValue("@pEstudiante", pIdEstudiante);
+            try
+            {
+                Conexion.getCnxMatricula().Open();
+                SqlDataReader vRd = vCmd.ExecuteReader();
+                List<Matricula> vDatos = new List<Matricula>();
+                Estudiante vEstudiante = null;
+                Curso vCurso = null;
+                while (vRd.Read())
+                {
+                    vEstudiante = new Estudiante() { Identificacion = vRd.GetString(0) };
+                    vCurso = new Curso() { Id = vRd.GetInt32(1), Nombre = vRd.GetString(5), Descripcion = vRd.GetString(6) };
+                    vDatos.Add(new Matricula(vEstudiante, vCurso, vRd.GetDateTime(3), vRd.GetInt32(2), vRd.GetDecimal(4)));
+                }
+                vRd.Close();
+                return vDatos;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexion.getCnxMatricula().Close();
+            }
+        }
+
         public static List<Matricula> Listar(int pCuatrimestre)
         {
             SqlCommand vCmd = new SqlCommand("SP_ListarMatricula", Conexion.getCnxMatricula());
@@ -23,7 +56,7 @@ namespace ProgramacionAvanzadaTareaN1.Datos
                 SqlDataReader vRd = vCmd.ExecuteReader();
                 List<Matricula> vDatos = new List<Matricula>();
                 while (vRd.Read())
-                    vDatos.Add(new Matricula(vRd.GetString(0), vRd.GetInt32(1), vRd.GetDateTime(2), vRd.GetInt32(3), vRd.GetDecimal(4)));
+                    vDatos.Add(new Matricula(new Estudiante() { Identificacion = vRd.GetString(0) }, new Curso() { Id = vRd.GetInt32(1) } , vRd.GetDateTime(3), vRd.GetInt32(2), vRd.GetDecimal(4)));
                 vRd.Close();
                 return vDatos;
             }
@@ -42,8 +75,8 @@ namespace ProgramacionAvanzadaTareaN1.Datos
             SqlCommand vCmd = new SqlCommand("SP_AgregarMatricula", Conexion.getCnxMatricula());
             vCmd.CommandType = CommandType.StoredProcedure;
             vCmd.Parameters.Clear();
-            vCmd.Parameters.AddWithValue("@pEstudiante", pMatricula.IdEstudiante);
-            vCmd.Parameters.AddWithValue("@pCurso", pMatricula.IdCurso);
+            vCmd.Parameters.AddWithValue("@pEstudiante", pMatricula.Estudiante.Identificacion);
+            vCmd.Parameters.AddWithValue("@pCurso", pMatricula.Curso.Id);
             vCmd.Parameters.AddWithValue("@pCuatrimestre", pMatricula.Cuatrimestre);
             vCmd.Parameters.AddWithValue("@pFMatricula", pMatricula.FMatricula);
             vCmd.Parameters.AddWithValue("@pCosto", pMatricula.Costo);
@@ -67,8 +100,8 @@ namespace ProgramacionAvanzadaTareaN1.Datos
             SqlCommand vCmd = new SqlCommand("SP_BorrarMatricula", Conexion.getCnxMatricula());
             vCmd.CommandType = CommandType.StoredProcedure;
             vCmd.Parameters.Clear();
-            vCmd.Parameters.AddWithValue("@pEstudiante", pMatricula.IdEstudiante);
-            vCmd.Parameters.AddWithValue("@pCurso", pMatricula.IdCurso);
+            vCmd.Parameters.AddWithValue("@pEstudiante", pMatricula.Estudiante.Identificacion);
+            vCmd.Parameters.AddWithValue("@pCurso", pMatricula.Curso.Id);
             vCmd.Parameters.AddWithValue("@pCuatrimestre", pMatricula.Cuatrimestre);
             try
             {

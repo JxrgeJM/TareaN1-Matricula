@@ -8,6 +8,12 @@ namespace ProgramacionAvanzadaTareaN1.Entidades
 {
     public class Escuela
     {
+        public Escuela()
+        {
+            Id = 0;
+            Nombre = "";
+        }
+
         public Escuela(int id, string nombre)
         {
             Id = id;

@@ -8,6 +8,15 @@ namespace ProgramacionAvanzadaTareaN1.Entidades
 {
     public class Curso
     {
+        public Curso()
+        {
+            Id = 0;
+            Nombre = "";
+            Descripcion = "";
+            Costo = 0;
+            Escuela = new Escuela();
+        }
+
         public Curso(int id, string nombre, string descripcion, decimal costo, Escuela escuela)
         {
             Id = id;
@@ -22,5 +31,10 @@ namespace ProgramacionAvanzadaTareaN1.Entidades
         public string Descripcion { get; set; }
         public decimal Costo { get; set; }
         public Escuela Escuela { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

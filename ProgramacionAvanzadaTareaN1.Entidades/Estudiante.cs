@@ -8,6 +8,16 @@ namespace ProgramacionAvanzadaTareaN1.Entidades
 {
     public class Estudiante
     {
+        public Estudiante()
+        {
+            Identificacion = "";
+            Nombre = "";
+            Apellido1 = "";
+            Apellido2 = "";
+            FNacimiento = new DateTime(1900, 1, 1);
+            FIngreso = new DateTime(1900, 1, 1);
+        }
+
         public Estudiante(string identificacion, string nombre, string apellido1, string apellido2, DateTime fnacimiento, DateTime fingreso)
         {
             Identificacion = identificacion;

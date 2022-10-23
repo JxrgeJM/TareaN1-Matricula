@@ -6,10 +6,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10">
-                <asp:DropDownList ID="DropDownListPeriodo" runat="server" Width="100px" CssClass="form-control form-control-sm" >
+                <label class="mr-1">Cuatrimestre:</label>
+                <asp:DropDownList ID="DropDownListPeriodo" runat="server" Width="100px" CssClass="form-control form-control-sm mr-2" >
                     <asp:ListItem Value="32022" Text="032022" Selected="True" />
                 </asp:DropDownList>
-                <asp:DropDownList ID="DropDownListEstudiantes" runat="server" Width="300px" DataValueField="Identificacion" DataTextField="NombreCompleto" CssClass="form-control form-control-sm" >
+                <label class="mr-1">Estudiante:</label>
+                <asp:DropDownList ID="DropDownListEstudiantes" runat="server" Width="300px" DataValueField="Identificacion" 
+                    DataTextField="NombreCompleto" CssClass="form-control form-control-sm mr-2" >
                 </asp:DropDownList>
                 <asp:TextBox ID="TextBoxBuscar" runat="server" Width="300px" CssClass="form-control form-control-sm mr-2"></asp:TextBox>
                 <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" OnClick="ButtonBuscar_Click" CssClass="btn btn-sm btn-primary" />
@@ -24,20 +27,20 @@
                     runat="server" AllowPaging="True" PageSize="10" 
                     AutoGenerateColumns="False" ForeColor="#333333" 
                     GridLines="None" Width="100%" CellSpacing="1"  
-                    DataKeyNames="Identificacion"
+                    DataKeyNames="CursoId"
                     EmptyDataText="Sin cursos Matriculados."
                     OnPageIndexChanging="GridViewMatriculados_PageIndexChanging" 
-                    OnSelectedIndexChanged="GridViewMatriculados_SelectedIndexChanged">
+                    OnSelectedIndexChanged="GridViewMatriculados_SelectedIndexChanged" 
+                    OnRowCommand="GridViewMatriculados_RowCommand">
                     <Columns>
-                        <asp:BoundField DataField="Identificacion" HeaderText="Identificación" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="Apellido1" HeaderText="1° Apellido" />
-                        <asp:BoundField DataField="Apellido2" HeaderText="2° Apellido" />
-                        <asp:BoundField DataField="FNacimiento" HeaderText="Nacimiento" DataFormatString="{0:d}"/>
-                        <asp:BoundField DataField="FIngreso" HeaderText="Fecha Ingreso" DataFormatString="{0:d}"/>
+                        <asp:BoundField DataField="Curso" HeaderText="Curso" />
+                        <asp:BoundField DataField="FMatricula" HeaderText="Fecha Matrícula" DataFormatString="{0:d}" />
+                        <asp:BoundField DataField="Costo" HeaderText="Costo" DataFormatString="{0:n}"/>
+
                         <asp:TemplateField ItemStyle-Width="10%" HeaderText="Detalle"> 
                             <ItemTemplate>
                                 <asp:Button ID="ButtonVer" runat="server" CommandName="Select" Text="Ver" CssClass="btn btn-sm btn-primary btn-block"/>
+                                <asp:Button ID="ButtonQuitar" runat="server" CommandName="Borrar" CommandArgument='<%# Container.DataItemIndex%>' Text="Quitar" CssClass="btn btn-sm btn-primary btn-block"/>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -51,6 +54,9 @@
             </div>
         </div>
     </div>
+    <div>
+        <asp:Label ID="LabelCTotal" runat="server" Font-Bold="True"></asp:Label>
+    </div>
 
 <ajaxtoolkit:modalpopupextender ID="ModalPopupExtender1" runat="server"
     TargetControlID="ButtonNuevo"
@@ -62,7 +68,7 @@
 <asp:Panel ID="Panel1" runat="server" CssClass="container-fluid table" Style="width:400px; display:none;" >
     <div class="row">
         <div class="col-sm">
-            <h4>Matricular Curso</h4>
+            <h4>Curso</h4>
         </div>
     </div>
     <div class="form-group">
@@ -90,5 +96,6 @@
         </div>
     </div>
 </asp:Panel>
+
 
 </asp:Content>

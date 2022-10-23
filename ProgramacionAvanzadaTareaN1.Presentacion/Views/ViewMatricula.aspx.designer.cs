@@ -69,6 +69,15 @@ namespace ProgramacionAvanzadaTareaN1.Presentacion.Views
         protected global::System.Web.UI.WebControls.GridView GridViewMatriculados;
 
         /// <summary>
+        /// Control LabelCTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCTotal;
+
+        /// <summary>
         /// Control ModalPopupExtender1.
         /// </summary>
         /// <remarks>

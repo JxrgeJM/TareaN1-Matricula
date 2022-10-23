@@ -8,19 +8,35 @@ namespace ProgramacionAvanzadaTareaN1.Entidades
 {
     public class Matricula
     {
-        public Matricula(string idEstudiante, int idCurso, DateTime fMatricula, int cuatrimestre, decimal costo)
+        public Matricula()
         {
-            IdEstudiante = idEstudiante;
-            IdCurso = idCurso;
+        }
+
+        public Matricula(Estudiante pEstudiante, Curso pCurso, DateTime fMatricula, int cuatrimestre, decimal costo)
+        {
+            Estudiante = pEstudiante;
+            Curso = pCurso;
             FMatricula = fMatricula;
             Cuatrimestre = cuatrimestre;
             Costo = costo;
         }
 
-        public string IdEstudiante { get; set; }
-        public int IdCurso { get; set; }
+        public Estudiante Estudiante { get; set; }
+        public Curso Curso { get; set; }
         public DateTime FMatricula { get; set; }
         public int Cuatrimestre { get; set; }
         public decimal Costo { get; set; }
+
+
+        public int CursoId
+        {
+            get { return Curso.Id; }
+        }
+
+        public string EstudianteId
+        {
+            get { return Estudiante.Identificacion; }
+        }
+
     }
 }
