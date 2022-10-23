@@ -44,8 +44,13 @@
                                 <li class="nav-item">
                                     <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Views/ViewMatricula.aspx">Matrícular</asp:HyperLink>
                                 </li>
-                                <li class="nav-item">
-                                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="nav-link" NavigateUrl="~/Views/ViewMatriculados.aspx">Matriculados</asp:HyperLink>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">Consultas</a>
+                                    <div class="dropdown-menu">
+                                        <asp:HyperLink ID="HyperLink5" runat="server" CssClass="dropdown-item" NavigateUrl="~/Views/Consultas/ViewEstudiantesPorCurso.aspx">Estudiantes Matriculados</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink6" runat="server" CssClass="dropdown-item" NavigateUrl="~/Views/Consultas/ViewIngresosPorCuatrimestre.aspx">Total de Ingresos</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink7" runat="server" CssClass="dropdown-item" NavigateUrl="~/Views/Consultas/ViewEstadisticaCursosMatriculados.aspx">Estadística</asp:HyperLink>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

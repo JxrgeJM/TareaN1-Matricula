@@ -98,11 +98,13 @@
     <Content Include="Scripts\Bootstrap_4.5.0\bootstrap.min.js" />
     <Content Include="Scripts\Jquery\jquery-3.5.1.min.js" />
     <Content Include="Scripts\Jquery\jquery.number.min.js" />
+    <Content Include="Views\Consultas\ViewEstadisticaCursosMatriculados.aspx" />
+    <Content Include="Views\Consultas\ViewEstudiantesPorCurso.aspx" />
+    <Content Include="Views\Consultas\ViewIngresosPorCuatrimestre.aspx" />
     <Content Include="Views\Default.aspx" />
     <Content Include="Views\ViewCursos.aspx" />
     <Content Include="Views\ViewEstudiantes.aspx" />
     <Content Include="Views\ViewMatricula.aspx" />
-    <Content Include="Views\ViewMatriculados.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +118,27 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Consultas\ViewEstadisticaCursosMatriculados.aspx.cs">
+      <DependentUpon>ViewEstadisticaCursosMatriculados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Consultas\ViewEstadisticaCursosMatriculados.aspx.designer.cs">
+      <DependentUpon>ViewEstadisticaCursosMatriculados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Consultas\ViewEstudiantesPorCurso.aspx.cs">
+      <DependentUpon>ViewEstudiantesPorCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Consultas\ViewEstudiantesPorCurso.aspx.designer.cs">
+      <DependentUpon>ViewEstudiantesPorCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Consultas\ViewIngresosPorCuatrimestre.aspx.cs">
+      <DependentUpon>ViewIngresosPorCuatrimestre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Consultas\ViewIngresosPorCuatrimestre.aspx.designer.cs">
+      <DependentUpon>ViewIngresosPorCuatrimestre.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -144,13 +167,6 @@
     </Compile>
     <Compile Include="Views\ViewMatricula.aspx.designer.cs">
       <DependentUpon>ViewMatricula.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewMatriculados.aspx.cs">
-      <DependentUpon>ViewMatriculados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\ViewMatriculados.aspx.designer.cs">
-      <DependentUpon>ViewMatriculados.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

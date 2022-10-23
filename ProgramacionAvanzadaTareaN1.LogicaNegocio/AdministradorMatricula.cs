@@ -29,5 +29,25 @@ namespace ProgramacionAvanzadaTareaN1.LogicaNegocio
         {
             MatriculaDAL.Borrar(pMatricula);
         }
+
+        #region CONSULTAS
+
+        public static List<Estudiante> ConsultaMatriculadosPorCurso(int pCuatrimestre, int pIdCurso)
+        {
+            return MatriculaDAL.ConsultaMatriculadosPorCurso(pCuatrimestre, pIdCurso);
+        }
+
+        public static decimal ConsultaIngresos(int pCuatrimestre)
+        {
+            return MatriculaDAL.ConsultaIngresos(pCuatrimestre);
+        }
+
+        public static int ConsultaCantidadCursosMatriculados(int pCuatrimestre)
+        {
+            return MatriculaDAL.ConsultaCantidadCursosMatriculados(pCuatrimestre);
+        }
+
+        #endregion
+
     }
 }

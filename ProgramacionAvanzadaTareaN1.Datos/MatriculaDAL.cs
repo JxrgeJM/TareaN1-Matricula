@@ -118,5 +118,95 @@ namespace ProgramacionAvanzadaTareaN1.Datos
             }
         }
 
+
+        #region CONSULTAS
+
+        public static List<Estudiante> ConsultaMatriculadosPorCurso(int pCuatrimestre, int pIdCurso)
+        {
+            SqlCommand vCmd = new SqlCommand("SP_ConsultaMatriculadosCuatrimestre", Conexion.getCnxMatricula());
+            vCmd.CommandType = CommandType.StoredProcedure;
+            vCmd.Parameters.Clear();
+            vCmd.Parameters.AddWithValue("@pCuatrimestre", pCuatrimestre);
+            vCmd.Parameters.AddWithValue("@pIdCurso", pIdCurso);
+            try
+            {
+                Conexion.getCnxMatricula().Open();
+                SqlDataReader vRd = vCmd.ExecuteReader();
+                List<Estudiante> vDatos = new List<Estudiante>();
+                while (vRd.Read())
+                {
+                    vDatos.Add(new Estudiante(vRd.GetString(0), vRd.GetString(1), vRd.GetString(2), vRd.GetString(3), vRd.GetDateTime(4), vRd.GetDateTime(5)));
+                }
+                vRd.Close();
+                return vDatos;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexion.getCnxMatricula().Close();
+            }
+        }
+
+        public static decimal ConsultaIngresos(int pCuatrimestre)
+        {
+            SqlCommand vCmd = new SqlCommand("SP_ConsultaIngresosCuatrimestre", Conexion.getCnxMatricula());
+            vCmd.CommandType = CommandType.StoredProcedure;
+            vCmd.Parameters.Clear();
+            vCmd.Parameters.AddWithValue("@pCuatrimestre", pCuatrimestre);
+            try
+            {
+                Conexion.getCnxMatricula().Open();
+                SqlDataReader vRd = vCmd.ExecuteReader();
+                decimal vDato = 0;
+                while (vRd.Read())
+                {
+                    vDato = vRd.GetDecimal(0);
+                }
+                vRd.Close();
+                return vDato;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexion.getCnxMatricula().Close();
+            }
+        }
+
+        public static int ConsultaCantidadCursosMatriculados(int pCuatrimestre)
+        {
+            SqlCommand vCmd = new SqlCommand("SP_ConsultaCantidadCursosMatriculados", Conexion.getCnxMatricula());
+            vCmd.CommandType = CommandType.StoredProcedure;
+            vCmd.Parameters.Clear();
+            vCmd.Parameters.AddWithValue("@pCuatrimestre", pCuatrimestre);
+            try
+            {
+                Conexion.getCnxMatricula().Open();
+                SqlDataReader vRd = vCmd.ExecuteReader();
+                int vDato = 0;
+                while (vRd.Read())
+                {
+                    vDato = vRd.GetInt32(0);
+                }
+                vRd.Close();
+                return vDato;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexion.getCnxMatricula().Close();
+            }
+        }
+
+        #endregion
+
     }
 }
