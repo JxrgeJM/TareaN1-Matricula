@@ -84,7 +84,7 @@ namespace ProgramacionAvanzadaTareaN1.Presentacion.Views
                     int.Parse(TextBoxId.Text), 
                     TextBoxNombre.Text.ToUpper(), 
                     TextBoxDescripcion.Text.ToUpper(), 
-                    decimal.Parse(TextBoxCosto.Text, CultureInfo.InvariantCulture), 
+                    decimal.Parse(TextBoxCosto.Text.Replace(',', '.'), CultureInfo.InvariantCulture), 
                     new Escuela(int.Parse(DropDownListEscuela2.SelectedValue), ""));
                 AdministradorCurso.Agregar(vCurso);
                 ((Site)Page.Master).Alerta("Curso agregado.", 1);
